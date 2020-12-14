@@ -1,3 +1,3 @@
-const serverAddress = "http://localhost:8080/";
+const serverAddress = "https://langmarketbackend.herokuapp.com/";
 
 export default serverAddress;
