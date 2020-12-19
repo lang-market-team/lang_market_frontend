@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import "./pages.css";
 import LoginBox from '../components/LoginBox';
-import logoLangMarket from '../images/Logo_LangMarket.PNG'
+import logoLangMarket from '../images/logoLangMarket.png'
 class Login extends Component {
   render() {
     return (
       <div>
         <div className='row'>
-          <div className='col-md-7'>
-            <img src={logoLangMarket} alt='Logo'/>
+          <div className='col-sm-7'>
+            <img className="img-fluid" src={logoLangMarket} alt='Logo'/>
           </div>
-          <div className="col-md-5 login-box-area">
+          <div className="col-sm-5 login-box-area">
             <LoginBox />
           </div>
         </div>
