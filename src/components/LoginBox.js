@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./components.css";
 import serverAddress from "../serverConnection";
-class Login extends Component {
+class LoginBox extends Component {
   constructor(props) {
     super(props);
     this.login = this.login.bind(this);
@@ -17,11 +17,10 @@ class Login extends Component {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        console.log(data);
         if (data === 1) {
-          this.setState({ statusLogin: "Login success" });
+          this.setState({ statusLogin: "Đăng nhập thành công" });
         } else {
-          this.setState({ statusLogin: "Username or password is wrong" });
+          this.setState({ statusLogin: "Tên đăng nhập hoặc mật khẩu sai" });
         }
       }
       )
@@ -30,34 +29,34 @@ class Login extends Component {
   render() {
     return (
       <div className="container login-box">
-        <h2>Login with any username or password</h2>
+        <h2>Không cần nhập Tên đăng nhập hay Mật khẩu, chỉ cần nhấn Đăng nhập để test</h2>
         <form>
           <div className="form-group">
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Tên đăng nhập:</label>
             <input
-              type="number"
+              type="text"
               className="form-control"
               id="username"
-              placeholder="Enter username"
+              placeholder="Nhập tên đăng nhập"
               ref={(ref) => {
                 this.username = ref;
               }}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="pwd">Password:</label>
+            <label htmlFor="password">Mật khẩu:</label>
             <input
               type="password"
               className="form-control"
-              id="pwd"
-              placeholder="Enter password"
+              id="password"
+              placeholder="Nhập mật khẩu"
               ref={(ref) => {
                 this.password = ref;
               }}
             />
           </div>
           <button type="button" className="btn btn-primary" onClick={this.login}>
-            Login
+            Đăng nhập
           </button>{" "}
           <p className="text-danger">{this.state.statusLogin}</p>
         </form>
@@ -65,4 +64,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default LoginBox;
