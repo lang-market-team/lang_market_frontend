@@ -4,6 +4,11 @@ import NavbarComponent from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Fashion from "./pages/productList/Fashion"
+import Food from "./pages/productList/Food"
+import ElectronicDevice from "./pages/productList/ElectronicDevice"
+import Book from "./pages/productList/Book"
+import Skincare from "./pages/productList/Skincare"
 
 export default function App() {
   return (
@@ -22,6 +27,21 @@ export default function App() {
           </Route>
           <Route path="/signup">
             <Signup />
+          </Route>
+          <Route path="/productlist/fashion">
+            <Fashion />
+          </Route>
+          <Route path="/productlist/food">
+            <Food />
+          </Route>
+          <Route path="/productlist/electronicdevice">
+            <ElectronicDevice />
+          </Route>
+          <Route path="/productlist/book">
+            <Book />
+          </Route>
+          <Route path="/productlist/skincare">
+            <Skincare />
           </Route>
         </Switch>
       </div>
