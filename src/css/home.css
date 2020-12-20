@@ -1,0 +1,160 @@
+.my-container{
+    margin: 0 135px;
+}
+
+.top-product{
+    margin: 50px 0;
+}
+
+.top-product .top-product-title{
+    font-family: "Poppins",sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 36px;
+letter-spacing: 0em;
+text-align: left;
+color:  #F36464;
+
+
+}
+
+.top-product .top-product-header{
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.top-product .top-product-show-all-button{
+    display: flex;
+    align-items: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:  #2498FE;
+    cursor: pointer;
+    
+}
+
+.news{
+    margin: 50px 0;
+}
+.news-title{
+    font-family: "Poppins",sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 36px;
+letter-spacing: 0em;
+text-align: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.blog .blog-img{
+    width: 100%;
+    height: 250px;
+    background-color: #C4C4C4;
+}
+
+.blog .flex{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.blog .blog-time{
+    width: 65px;
+    height: 65px;
+   border-radius: 50%;
+   background-color: #2498FE;
+   color: #fff;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.blog .blog-day{
+    font-family: "Poppins",sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+
+.blog .blog-month{
+    font-family: "Poppins",sans-serif;
+font-size: 11px;
+font-style: normal;
+font-weight: 500;
+line-height: 13px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+
+.blog .blog-info{
+    padding-left: 13px;
+    width: calc(100% - 65px);
+    text-align: start;
+}
+
+.blog .blog-auth{
+    font-family: "Poppins",sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: 0em;
+
+
+}
+
+.blog .blog-title{
+    font-family: "Poppins",sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 27px;
+letter-spacing: 0em;
+
+
+}
+
+
+@media (max-width: 1024px){
+    
+    .my-container {
+        margin: 100px 90px;
+    }
+
+
+}
+
+@media (max-width: 768px){
+    
+    .my-container {
+        margin: 0 45px;
+    }
+
+
+}
+
+@media (max-width: 420px){
+    
+    .my-container {
+        margin: 0;
+    }
+
+
+}
