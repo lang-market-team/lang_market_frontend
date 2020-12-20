@@ -4,18 +4,18 @@ class Signup extends Component {
     return (
       <div className="container">
         <h2>Đăng ký tài khoản</h2>
-        <div class="row">
-          <div class="col-sm-6">
+        <div className="row">
+          <div className="col-sm-6">
             <form>
               <div className="form-group">
                 <div>
                   <label>Loại tài khoản</label>
                 </div>
-                <div class="form-check">
-                  <label class="form-check-label" for="customer">
+                <div className="form-check">
+                  <label className="form-check-label" for="customer">
                     <input
                       type="radio"
-                      class="form-check-input"
+                      className="form-check-input"
                       id="customer"
                       name="optradio"
                       value="customer"
@@ -24,11 +24,11 @@ class Signup extends Component {
                     Khách mua hàng
                   </label>
                 </div>
-                <div class="form-check">
-                  <label class="form-check-label" for="seller">
+                <div className="form-check">
+                  <label className="form-check-label" for="seller">
                     <input
                       type="radio"
-                      class="form-check-input"
+                      className="form-check-input"
                       id="seller"
                       name="optradio"
                       value="seller"
@@ -99,7 +99,7 @@ class Signup extends Component {
               </div>
             </form>
           </div>
-          <div class="col-sm-6">
+          <div className="col-sm-6">
             <form>
               <div className="form-group">
                 <label htmlFor="street">Số nhà, tên đường:</label>
