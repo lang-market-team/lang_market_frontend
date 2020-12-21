@@ -4,7 +4,13 @@ const Cart = () => {
     return (
         <div className="cart my-container">
             <div className="container-fluid">
+
                 <div className="row">
+                    <div className="col-12">
+                        <div className="cart-title">
+                            Giỏ hàng của bạn <span>(3 sản phẩm)</span>
+                        </div>
+                    </div>
                     <div className="col-lg-9 col-12">
                         <CartProduct />
                         <CartProduct />

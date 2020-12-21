@@ -1,6 +1,28 @@
 
 .my-container{
-    margin: 0 90px;
+    margin: 0 70px;
+}
+
+.cart-title{
+    font-family: "Poppins",sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 20px;
+
+}
+
+.cart-title span{
+    font-family: "Poppins",sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+
+align-items: center;
 }
 
 .pay-box{
@@ -16,7 +38,9 @@ font-weight: 400;
 line-height: 24px;
 letter-spacing: 0em;
 text-align: left;
+    margin: 25px 0;
 
+    border: 1px solid #D1D1D1;
 }
 
 .pay-money{
@@ -75,7 +99,16 @@ color: #FFFFFF;
 @media (max-width: 768px){
     
     .my-container {
-        margin: 0 45px;
+        margin: 0 25px;
+    }
+
+
+}
+
+@media (max-width: 500px){
+    
+    .cart-title {
+       font-size: 20px;
     }
 
 
