@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CarouselComponent from "../components/Carousel";
 import Product from "../components/common/product";
+
 import "../css/home.css"
 class Signup extends Component {
   render() {
@@ -9,7 +10,6 @@ class Signup extends Component {
         <div className="container">
           <CarouselComponent />
         </div>
-
         <div className="top-product">
           <div className="top-product-header">
             <div className="top-product-title">Top sản phẩm bán chạy</div>
