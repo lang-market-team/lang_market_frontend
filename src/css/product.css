@@ -1,0 +1,115 @@
+.product{
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+    border: 1.5px solid #D1D1D1;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.product .product-image{
+    position: relative;
+}
+
+.product .img{
+    width: 100%;
+    height: 180px;
+    background-color: #F9F9F9;
+    border-radius: 12px;
+}
+
+
+.product .product-discount{
+    position: absolute;
+    background: #dfedf7;
+    color: #2498FE;
+    font-family: "Poppins",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 12px;
+    padding: 2px 12px;
+    left: 12px;
+    top: 12px;
+}
+
+.product .product-name{
+    margin-top: 16px;
+    font-family: "Poppins",sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+
+.product .product-description{
+
+    font-family: "Poppins",sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 16px;
+    color: #240707;
+    margin-top: 5px;
+
+}
+
+.product .flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product .product-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product .product-new-price{
+    font-family: "Poppins",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #2498FE;
+}
+
+.product .product-old-price{
+    font-family: "Poppins",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color:#A9A9A9;
+    text-decoration-line: line-through;
+}
+
+.product .product-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+    background: #2498FE;
+    border-radius: 45px;
+}
+
+@media (max-width: 500px){
+    
+    .product .img{
+        width: 100%;
+        height: 250px;
+        background-color: #F9F9F9;
+        border-radius: 12px;
+    }
+
+
+}
