@@ -1,5 +1,42 @@
 import React, { Component } from "react";
+import serverAddress from "../serverConnection";
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.signup = this.signup.bind(this);
+    this.state = {
+      statusSignup: "",
+    };
+  }
+  signup() {
+    fetch(serverAddress + "api/signup", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: this.username.value,
+        pass: this.password.value,
+        first_name: this.firstname.value,
+        last_name: this.lastname.value,
+        street: this.street.value,
+        town: this.town.value,
+        district: this.district.value,
+        province: this.province.value,
+        phonenumber: this.phonenumber.value,
+        email: this.email.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data === 1) {
+          this.setState({ statusLogin: "Đăng ký thành công" });
+          
+        } else {
+          this.setState({ statusLogin: "Đăng ký thất bại" });
+        }
+      });
+  }
+
   render() {
     return (
       <div className="container">
@@ -12,20 +49,20 @@ class Signup extends Component {
                   <label>Loại tài khoản</label>
                 </div>
                 <div className="form-check">
-                  <label className="form-check-label" for="customer">
+                  <label className="form-check-label" htmlFor="customer">
                     <input
                       type="radio"
                       className="form-check-input"
                       id="customer"
                       name="optradio"
                       value="customer"
-                      checked
+                      defaultChecked
                     />
                     Khách mua hàng
                   </label>
                 </div>
                 <div className="form-check">
-                  <label className="form-check-label" for="seller">
+                  <label className="form-check-label" htmlFor="seller">
                     <input
                       type="radio"
                       className="form-check-input"
@@ -138,26 +175,26 @@ class Signup extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="city">Tỉnh, thành phố:</label>
+                <label htmlFor="province">Tỉnh, thành phố:</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="city"
+                  id="province"
                   placeholder="Nhập tỉnh, thành phố"
                   ref={(ref) => {
-                    this.city = ref;
+                    this.province = ref;
                   }}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Số điện thoại:</label>
+                <label htmlFor="phonenumber">Số điện thoại:</label>
                 <input
                   type="number"
                   className="form-control"
-                  id="phone"
+                  id="phonenumber"
                   placeholder="Nhập số điện thoại"
                   ref={(ref) => {
-                    this.phone = ref;
+                    this.phonenumber = ref;
                   }}
                 />
               </div>
@@ -180,10 +217,11 @@ class Signup extends Component {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={this.login}
+            onClick={this.signup}
           >
             Đăng ký
-          </button>{" "}
+          </button>
+          <p className="text-danger">{this.state.statusLogin}</p>
         </div>
       </div>
     );

@@ -9,27 +9,33 @@ class LoginBox extends Component {
       statusLogin: "",
     };
   }
-  componentDidMount() {
-    console.log(this.context);
-  }
   login() {
-    fetch(serverAddress)
-      .then(res => res.json())
-      .then(data => {
+    fetch(serverAddress + "api/login", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: this.username.value,
+        pass: this.password.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         if (data === 1) {
           this.setState({ statusLogin: "Đăng nhập thành công" });
+          
         } else {
           this.setState({ statusLogin: "Tên đăng nhập hoặc mật khẩu sai" });
         }
-      }
-      )
+      });
   }
 
   render() {
     return (
       <div className="container login-box">
-        <h2>Không cần nhập Tên đăng nhập hay Mật khẩu, chỉ cần nhấn Đăng nhập để test</h2>
+        <h2>Đăng nhập</h2>
+        <p className="text-danger">admin admin</p>
+        <p className="text-danger">customer1 customer1</p>
         <form>
           <div className="form-group">
             <label htmlFor="username">Tên đăng nhập:</label>
