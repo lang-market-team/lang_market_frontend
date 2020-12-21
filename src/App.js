@@ -9,6 +9,8 @@ import Food from "./pages/productList/Food"
 import ElectronicDevice from "./pages/productList/ElectronicDevice"
 import Book from "./pages/productList/Book"
 import Skincare from "./pages/productList/Skincare"
+import Renamestore from "./pages/Store/Renamestore"
+import Manageproduct from "./pages/Store/Manageproduct"
 
 export default function App() {
   return (
@@ -42,6 +44,12 @@ export default function App() {
           </Route>
           <Route path="/productlist/skincare">
             <Skincare />
+          </Route>
+          <Route path="/store/rename">
+            <Renamestore />
+          </Route>
+          <Route path="/store/manage">
+            <Manageproduct />
           </Route>
         </Switch>
       </div>

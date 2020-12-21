@@ -56,6 +56,19 @@ const NavbarComponent = (props) => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Store
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <NavLink href="/store/rename">Đổi tên</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink href="/store/manage">Quản lý</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
           </Nav>
         </Collapse>
       </Navbar>
