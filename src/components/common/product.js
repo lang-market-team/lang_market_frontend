@@ -1,7 +1,20 @@
 import "../../css/product.css";
 import Star from "./star";
 const Product = (props) => {
+    var data = props.data;
+    var ratingView = () => {
+        let view = [];
+        for (let i = 0; i < 5; i++) {
+            if (i < data.rating) {
+                view.push(<Star width="20" height="20" isActive="true" />);
+            }
+            else {
+                view.push(<Star width="20" height="20" isActive="false" />);
+            }
 
+        }
+        return view;
+    }
     return (
         <div className="product">
             <div className="product-image">
@@ -10,25 +23,22 @@ const Product = (props) => {
             </div>
             <div className="product-info">
                 <div className="product-name">
-                    Tên sản phẩm
+                    {data.product_name}
                 </div>
                 <div className="product-description">
-                    mô tả sơ lược về sản phẩm bày bán
+                    {data.product_describe}
                 </div>
                 <div className="product-rating">
-                    <Star width="20" height="20" isActive="true" />
-                    <Star width="20" height="20" isActive="true" />
-                    <Star width="20" height="20" isActive="true" />
-                    <Star width="20" height="20" isActive="true" />
-                    <Star width="20" height="20" isActive="false" />
+                    {
+                        ratingView()}
                 </div>
                 <div className="flex">
                     <div className="product-price">
                         <div className="product-new-price">
-                            36.99 USD
+                            {(data.price * 78 / 100).toLocaleString()} VND
                         </div>
                         <div className="product-old-price">
-                            48.56
+                            {data.price.toLocaleString()}
                         </div>
 
                     </div>

@@ -3,7 +3,7 @@
     margin-top: 45px;
     margin-bottom: 45px;
 }
-.product-image{
+.product-detail-image{
     min-height: 450px;
     background: #C4C4C4;
     width: 100%;
@@ -13,7 +13,7 @@
     padding-left: 45px;
 }
 
-.product-supplier{
+.product-detail-supplier{
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -23,7 +23,7 @@
     margin-top: 20px;
 }
 
-.product-title{
+.product-detail-title{
     font-family: "Poppins",sans-serif;
     font-size: 26px;
     font-style: normal;
@@ -32,14 +32,14 @@
     margin-bottom: 20px;
 }
 
-.product-rating{
+.product-detail-rating{
     margin-bottom: 20px;
 }
-.product-rating svg{
+.product-detail-rating svg{
     margin-right: 8px;
 }
 
-.product-description {
+.product-detail-description {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -49,13 +49,13 @@
     margin-bottom: 20px;
 }
 
-.product-price{
+.product-detail-price{
     display: flex;
     align-items: baseline;
     margin-bottom: 15px;
 }
 
-.product-new-price{
+.product-detail-new-price{
     font-family: "Poppins",sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -64,7 +64,7 @@
     color: #2498FE;
     margin-right: 24px;
 }
-.product-old-price {
+.product-detail-old-price {
     font-family: "Poppins",sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -73,7 +73,7 @@
     text-decoration-line: line-through;
 }
 
-.flex{
+.product-detail-flex{
     display: flex;
     align-items: center;
 }
@@ -82,7 +82,7 @@
     margin-bottom: 15px;
 }
 
-.product-number-text{
+.product-detail-number-text{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -92,7 +92,7 @@
 }
 
 
-.number-button {
+.product-detail-number-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,14 +105,14 @@
     color: #000;
 }
 
-.number-input {
+.product-detail-number-input {
     width: 50px;
     text-align: center;
     margin: 0 8px;
     outline: none;
 }
 
-.add-cart-button {
+.product-detail-add-cart-button {
     position: relative;
     padding: 12px 24px;
     padding-left: 52px;
@@ -129,7 +129,7 @@
     cursor: pointer;
 }
 
-.add-cart-icon {
+.product-detail-add-cart-icon {
     position: absolute;
     display: flex;
     align-items: center;
