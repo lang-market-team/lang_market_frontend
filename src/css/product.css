@@ -52,13 +52,22 @@ text-align: left;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
-    height: 32px;
+
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 16px;
     color: #240707;
     margin-top: 5px;
 
+}
+
+.product .product-rating{
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+
+.product .product-rating svg{
+    margin-right: 5px;
 }
 
 .product .flex{

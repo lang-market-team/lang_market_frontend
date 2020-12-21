@@ -1,5 +1,5 @@
 import "../../css/product.css";
-
+import Star from "./star";
 const Product = (props) => {
 
     return (
@@ -15,7 +15,13 @@ const Product = (props) => {
                 <div className="product-description">
                     mô tả sơ lược về sản phẩm bày bán
                 </div>
-
+                <div className="product-rating">
+                    <Star width="20" height="20" isActive="true" />
+                    <Star width="20" height="20" isActive="true" />
+                    <Star width="20" height="20" isActive="true" />
+                    <Star width="20" height="20" isActive="true" />
+                    <Star width="20" height="20" isActive="false" />
+                </div>
                 <div className="flex">
                     <div className="product-price">
                         <div className="product-new-price">

@@ -11,6 +11,7 @@ import Book from "./pages/productList/Book"
 import Skincare from "./pages/productList/Skincare"
 import Renamestore from "./pages/Store/Renamestore"
 import Manageproduct from "./pages/Store/Manageproduct"
+import Cart from "./pages/cart"
 
 export default function App() {
   return (
@@ -29,6 +30,9 @@ export default function App() {
           </Route>
           <Route path="/signup">
             <Signup />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route path="/productlist/fashion">
             <Fashion />

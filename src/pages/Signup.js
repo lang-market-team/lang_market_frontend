@@ -6,6 +6,7 @@ class Signup extends Component {
     this.signup = this.signup.bind(this);
     this.state = {
       statusSignup: "",
+      isSeller: false,
     };
   }
   signup() {
@@ -37,6 +38,14 @@ class Signup extends Component {
       });
   }
 
+  changeStatusSeller = () => {
+    this.setState({ isSeller: !this.state.isSeller });
+    document.getElementById("shop_name").disabled = this.state.isSeller;
+    document.getElementById("shop_describe").disabled = this.state.isSeller;
+  }
+
+
+
   render() {
     return (
       <div className="container">
@@ -57,6 +66,7 @@ class Signup extends Component {
                       name="optradio"
                       value="customer"
                       defaultChecked
+                      onChange={this.changeStatusSeller}
                     />
                     Khách mua hàng
                   </label>
@@ -69,11 +79,39 @@ class Signup extends Component {
                       id="seller"
                       name="optradio"
                       value="seller"
+                      onChange={this.changeStatusSeller}
                     />
                     Người bán hàng
                   </label>
                 </div>
               </div>
+              <div className="form-group">
+                <label htmlFor="shop_name">Tên cửa hàng:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="shop_name"
+                  placeholder="Nhập tên cửa hàng"
+                  disabled
+                  ref={(ref) => {
+                    this.shop_name = ref;
+                  }}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="shop_describe">Mô tả cửa hàng:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="shop_describe"
+                  placeholder="Mô tả cửa hàng"
+                  disabled
+                  ref={(ref) => {
+                    this.shop_name = ref;
+                  }}
+                />
+              </div>
+              <div className="form-group"></div>
               <div className="form-group">
                 <label htmlFor="username">Tên đăng nhập:</label>
                 <input
@@ -122,7 +160,11 @@ class Signup extends Component {
                   }}
                 />
               </div>
-              <div className="form-group">
+            </form>
+          </div>
+          <div className="col-sm-6">
+            <form>
+            <div className="form-group">
                 <label htmlFor="firstname">Tên:</label>
                 <input
                   type="text"
@@ -134,10 +176,6 @@ class Signup extends Component {
                   }}
                 />
               </div>
-            </form>
-          </div>
-          <div className="col-sm-6">
-            <form>
               <div className="form-group">
                 <label htmlFor="street">Số nhà, tên đường:</label>
                 <input
