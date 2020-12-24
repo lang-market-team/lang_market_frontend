@@ -1,6 +1,24 @@
 import "../css/product-detail.css";
 import Star from "../components/common/star";
+import React, { useState } from 'react';
 const ProductDetail = () => {
+
+
+    const [amount, setAmount] = useState(1);
+
+
+    function plus() {
+        if (amount + 1 <= 5) {
+            setAmount(amount + 1);
+        }
+    }
+
+    function minus() {
+        if (amount - 1 > 0) {
+            setAmount(amount - 1);
+        }
+    }
+
     return (
         <div className="container product-detail">
             <div className="row">
@@ -50,14 +68,14 @@ const ProductDetail = () => {
                             </div>
                             <div className="product-detail-flex">
 
-                                <div className="product-detail-number-button">
+                                <div onClick={() => minus()} className="product-detail-number-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                     </svg>
                                 </div>
-                                <input type="number" className="product-detail-number-button product-detail-number-input" />
+                                <input type="number" className="product-detail-number-button product-detail-number-input" value={amount} />
 
-                                <div className="product-detail-number-button">
+                                <div onClick={() => plus()} className="product-detail-number-button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
