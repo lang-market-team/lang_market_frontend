@@ -12,6 +12,7 @@ import Skincare from "./pages/productList/Skincare"
 import Renamestore from "./pages/Store/Renamestore"
 import Manageproduct from "./pages/Store/Manageproduct"
 import Cart from "./pages/cart"
+import ProductDetail from "./pages/product-detail"
 
 export default function App() {
   return (
@@ -27,6 +28,9 @@ export default function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/product-detail">
+            <ProductDetail />
           </Route>
           <Route path="/signup">
             <Signup />

@@ -1,9 +1,32 @@
 import React, { Component } from "react";
 import CarouselComponent from "../components/Carousel";
 import Product from "../components/common/product";
-
+import EProduct from "../entity/productDto";
 import "../css/home.css"
-class Signup extends Component {
+class Home extends Component {
+
+  list = [];
+  listView = [];
+
+  constructor() {
+    super();
+    for (let index = 0; index < 12; index++) {
+      var item = new EProduct();
+      item.id_product = index;
+      item.price = 2290000;
+      item.product_name = `Máy in hóa đơn Q260 - ${index}`;
+      item.product_describe = "Máy in hóa đơn Xprinter Q260 là dòng máy in hiện đại";
+      item.rating = index / 5;
+      this.list.push(item);
+    }
+
+    this.listView = this.list.map(item => (
+      <div className="col-xl-3 col-lg-4  col-sm-6">
+        <Product data={item} />
+      </div>
+    ));
+  }
+
   render() {
     return (
       <div className="my-container">
@@ -21,30 +44,7 @@ class Signup extends Component {
           </div>
           <div className="container-fluid">
             <div className="row">
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4  col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4  col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4  col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <Product />
-              </div>
-              <div className="col-xl-3 col-lg-4  col-sm-6">
-                <Product />
-              </div>
+              {this.listView}
 
             </div>
           </div>
@@ -141,4 +141,4 @@ class Signup extends Component {
     );
   }
 }
-export default Signup;
+export default Home;
