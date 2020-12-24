@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table, ButtonToggle } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 class Manageproduct extends Component {
     constructor(props){
         super(props);
