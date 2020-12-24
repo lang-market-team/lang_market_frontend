@@ -12,6 +12,7 @@ import Skincare from "./pages/productList/Skincare"
 import Renamestore from "./pages/Store/Renamestore"
 import Manageproduct from "./pages/Store/Manageproduct"
 import Cart from "./pages/cart"
+import Myorder from "./pages/order/myorder";
 
 export default function App() {
   return (
@@ -54,6 +55,9 @@ export default function App() {
           </Route>
           <Route path="/store/manage">
             <Manageproduct />
+          </Route>
+          <Route path="/order/myorder">
+            <Myorder />
           </Route>
         </Switch>
       </div>
