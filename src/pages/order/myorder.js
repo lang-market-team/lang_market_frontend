@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import "../../css/cart.css";
+import "../../css/order.css";
 import Order from "./order";
 class Myorder extends Component {
   render() {
     return (
         <div className="cart my-container">
             <div className="container-fluid">
-
                 <div className="row">
                     <div className="col-12">
                         <div className="cart-title">

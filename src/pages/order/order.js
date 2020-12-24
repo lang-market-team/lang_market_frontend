@@ -1,50 +1,54 @@
-import "../../css/cart-product.css";
+import "../../css/order.css";
+import {NavLink} from "reactstrap";
 const order = () => {
-    return (
-        <div className="cart-product">
-            <div className="cart-img">
+    return (         
+        <div className="order">
+            <div className="product-img">
 
             </div>
-            <div className="cart-info">
-                <div className="cart-left">
-                    <div className="cart-product-name">
+            <div className="product-info">
+                <div className="product-left">
+                    <div className="product-name">
                         Tên sản phẩm
                     </div>
-                    <div className="cart-product-description">
-                        Mô tả sơ lược về sản phẩm bày bán
+                    <div className="product-supplier">
+                        <span>Cung cấp </span> Zara
                     </div>
-                    <div className="cart-product-supplier">
-                        <span>Cung cấp bởi</span> Zara
+                    <div className="product-quanlity">
+                        <span>So luong: </span> 3
                     </div>
-                    <div className="">
-                        Số lượng
-                    </div>
-                    <div className="">
-                        3
-                    </div>
-                    <div className="">
-                        Tổng tiền
-                    </div>
-                    <div className="">
-                        3
+                    <div className="product-monney">
+                        <span>Tong tien: </span> 1.000.000
                     </div>
                 </div>
-                <div className="cart-right">
-                    <div className="cart-right-top">
-                        <div className="cart-product-price">
-                            <div className="product-new-price">
-                                1.400.000 Đ
+                <div className="product-right">
+                    <NavLink href="/order/manageorder" className="order-manager">MANAGE</NavLink>
+                    <div className="product-right-top">
+                        <div className="wrapper">
+                            <div className="margin-area">
+                                <div className="dot one">1</div>
+                                <div className="dot two">2</div>
+                                <div className="dot three">3</div>
+                                <div className="dot four">4</div>
+                                <div className="dot five">5</div>
+                                <div className="progress-bar first"></div>
+                                <div className="progress-bar second"></div>
+                                <div className="progress-bar third"></div>
+                                <div className="progress-bar fourx"></div>
+                                <div className="row message">
+                                    <div className="message-1">Chờ xác nhận </div>
+                                    <div className="message-2">Chờ lấy hàng</div>
+                                    <div className="message-3">Đang giao</div>
+                                    <div className="message-4">Đã giao</div>
+                                    <div className="message-5">Đã hủy</div>
+                                </div>        
                             </div>
-                            <div className="product-old-price">
-                                2.000.000
-                            </div>
-                        </div>
-                    
+                        </div>  
                     </div>
-                 
                 </div>
-            </div>      
+            </div>   
         </div>
+        
     )
 }
 
