@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import serverAddress from "../serverConnection";
+import { Redirect } from 'react-router-dom'
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -7,8 +8,23 @@ class Signup extends Component {
     this.state = {
       statusSignup: "",
       isSeller: false,
+      redirect: false,
     };
   }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/login' />
+    }
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+
   signup() {
     fetch(serverAddress + "api/signup", {
       method: "post",
@@ -30,7 +46,7 @@ class Signup extends Component {
       .then((data) => {
         console.log(data);
         if (data === 1) {
-          this.setState({ statusLogin: "Đăng ký thành công" });
+          this.setRedirect()
           
         } else {
           this.setState({ statusLogin: "Đăng ký thất bại" });
@@ -252,6 +268,7 @@ class Signup extends Component {
           </div>
         </div>
         <div className="text-center">
+          {this.renderRedirect()}
           <button
             type="button"
             className="btn btn-primary"
