@@ -17,7 +17,7 @@
     padding: 15px;
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 240px);
+    width: calc(100% - 100px);
 }
 .product-name{
     font-family: "Poppins",sans-serif;
@@ -28,6 +28,7 @@
     letter-spacing: 0em;
     text-align: left;
     margin-bottom: 4px;
+    margin-top: 12px;
 }
 .product-quanlity{
     font-family: "Poppins",sans-serif;
@@ -39,6 +40,7 @@
     line-height: 16px;
     color: #240707;
     margin-bottom: 8px;
+    margin-top: 12px;
 }
 .product-description{
     font-family: "Poppins",sans-serif;
@@ -69,7 +71,7 @@
 .product-right-top{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: right;
 }
 .order-manager{
     text-align: right;
@@ -78,7 +80,7 @@
     font-weight: bold;
 }
 .wrapper {
-    width: 844px;  
+    width: 680px;  
 }
 .margin-area {
     position: relative;
@@ -100,7 +102,7 @@
     z-index: 9999;
 }
 .one {
-    left: 65px;
+    left: 70px;
     background: #0C84D9;
 }
 .two {
@@ -108,43 +110,36 @@
     background: #0C84D9;
 }
 .three {
-    left: 420px;
+    left: 390px;
     background: #0C84D9;
     
 }
 .four {
-    left: 580px;
+    left: 565px;
     background: #bbb;
     
 }
-.five {
-    left: 730px;
-    background: #bbb;   
-    }
+
  
 .progress-bar {
     position: absolute;
     height: 10px;
-    width: 20%;
+    width: 25%;
     top: 20px;
-    left: 10%;
-    background: #0C84D9;
+    left: 15%;
 }
 .first {
     background: #0C84D9;
 }
 .second {
-    left: 33%;
+    left: 38%;
     background: #0C84D9;
 }
 .third {
-    left: 55%;
+    left: 65%;
     background: #bbb;
 }
-.fourx {
-    left: 73%;
-    background: #bbb;
-}
+
   
 .message {
     padding: 50px;
@@ -155,17 +150,15 @@
     color: #000;
 }
 .message-2 {
-    margin-left: 80px;
+    margin-left: 95px;
 }
 .message-3 {
-    margin-left: 110px;
+    margin-left: 95px;
 }
 .message-4 {
-    margin-left: 110px;
+    margin-left: 130px;
 }
-.message-5 {
-    margin-left: 100px;
-}
+
 .pay-box{
     padding: 17px 20px;
     background: #FFFFFF;
@@ -227,6 +220,7 @@
 @media (max-width: 768px){
     .product-left{
         padding: 12px;
+        
     }
     .cart-product{
         display: block;
