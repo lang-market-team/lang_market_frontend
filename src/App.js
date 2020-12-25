@@ -13,6 +13,8 @@ import Renamestore from "./pages/Store/Renamestore"
 import Manageproduct from "./pages/Store/Manageproduct"
 import Cart from "./pages/cart"
 import ProductDetail from "./pages/product-detail"
+import Myorder from "./pages/order/myorder";
+import Manageorder from "./pages/order/manageorder";
 
 export default function App() {
   return (
@@ -58,6 +60,12 @@ export default function App() {
           </Route>
           <Route path="/store/manage">
             <Manageproduct />
+          </Route>
+          <Route path="/order/myorder">
+            <Myorder />
+          </Route>
+          <Route path="/order/manageorder">
+            <Manageorder />
           </Route>
         </Switch>
       </div>
