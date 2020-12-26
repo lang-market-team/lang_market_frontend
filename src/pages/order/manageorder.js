@@ -1,12 +1,12 @@
 import "../../css/order.css";
-import OrderProduct from "./order-product";
 import {
     useParams
 } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import serverAddress from "../../serverConnection";
+import OrderProduct from "./order-product";
 
-const Manageorder = (props) => {
+const Manageorder = () => {
     const { id } = useParams();
     const [data_order, setData_order] = useState([]);
     function getCookie(cname) {
@@ -30,16 +30,16 @@ const Manageorder = (props) => {
             fetch(serverAddress + "api/order/id_buyer=4", {
                 method: "get",
                 headers: { "Content-Type": "application/json" },
-              })
+                })
                 .then((res) => res.json())
                 .then((data) => {
                     let order= data.filter(order=> order.id_order==id)
                     setData_order(order[0])
                 });
-          }
+            }
         findOne();
     }, [id]);
-
+    
     return (
         <div className="my-container">
             <div className="container-fluid">
