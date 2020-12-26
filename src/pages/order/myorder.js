@@ -4,10 +4,36 @@ import Order from "./order";
 import serverAddress from "../../serverConnection";
 
 class Myorder extends Component {
+    state={
+        data_order:[]
+    }
+    getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
   componentDidMount(){
-   
+    let ca=this.getCookie("id_user")
+    fetch(serverAddress + "api/order/id_buyer=4", {
+        method: "get",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({data_order:data})
+        });
   }
   render() {
+    const {data_order}=this.state
     return (
         <div className="my-container">
             <div className="container-fluid">
@@ -18,7 +44,10 @@ class Myorder extends Component {
                         </div>
                     </div>
                     <div className="col-lg-9 col-12">
-                        <Order />
+                        {data_order.map((order,index)=>(
+                            <Order key={`order-${index}`} order={order}/>
+                        ))}
+                      
                     </div>
                 </div>
             </div>
