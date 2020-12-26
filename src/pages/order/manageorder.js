@@ -2,11 +2,11 @@ import "../../css/order.css";
 import OrderProduct from "./order-product";
 const manageorder = () => {
     return (
-        <div className="cart my-container">
+        <div className="my-container">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12">
-                        <div className="cart-title">
+                        <div className="order-title">
                             Chi tiết đơn hàng
                         </div>
                     </div>
@@ -24,7 +24,7 @@ const manageorder = () => {
                             </div>
                             <div className="">
                                 Giá trị:
-                                <div className="pay-money">
+                                <div className="order-pay-money">
                                     <span>6,870,000đ</span>
                                 </div>
                             </div>
