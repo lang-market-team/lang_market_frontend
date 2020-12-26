@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import "../../css/order.css";
 import Order from "./order";
+import serverAddress from "../../serverConnection";
+
 class Myorder extends Component {
+  componentDidMount(){
+   
+  }
   render() {
     return (
-        <div className="cart my-container">
+        <div className="my-container">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12">
-                        <div className="cart-title">
+                        <div className="order-title">
                             Đơn hàng của bạn
                         </div>
                     </div>

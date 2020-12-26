@@ -3,25 +3,25 @@ import {NavLink} from "reactstrap";
 const order = () => {
     return (         
         <div className="order">
-            <div className="product-info">
+            <div className="order-product-info">
                 <div className="product-left">
-                    <div className="product-name">
+                    <div className="order-product-name">
                         <span>Mã đơn hàng: </span> ID
                     </div>
-                    <div className="product-quanlity">
+                    <div className="order-product-quanlity">
                         <span>Thời gian tạo đơn hàng: </span> Time
                     </div>
-                    <div className="product-quanlity">
+                    <div className="order-product-quanlity">
                         <span>Thời gian giao dự kiến: </span> Time
                     </div>
-                    <div className="product-quanlity">
+                    <div className="order-product-quanlity">
                         <span>Tổng giá: </span> Price
                     </div>
-                    <div className="product-quanlity">
+                    <div className="order-product-quanlity">
                         <span>Thanh toán: </span> Trước
                     </div>
                 </div>
-                <div className="product-right">
+                <div className="order-product-right">
                     <NavLink href="/order/manageorder" className="order-manager">MANAGE</NavLink>              
                     <div className="wrapper">
                             <div className="margin-area">
