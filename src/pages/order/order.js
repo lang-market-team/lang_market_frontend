@@ -1,6 +1,12 @@
 import "../../css/order.css";
-const order = (props) => {
+import React, { useState, useEffect } from 'react';
+import serverAddress from "../../serverConnection";
+
+const Order = (props) => {
     const format = "yyyy-MM-dd";
+    const type_account=getCookie('type_account')
+    const [edit_status, setEdit_status] = useState(false);
+    const [status_order, setStatus_order] = useState(1);
     function convertTimeToString(time, format){
         const date = new Date(time);
         const year = date.getFullYear();
@@ -34,9 +40,30 @@ const order = (props) => {
         }
         return "";
     }
+
+    function Edit() {
+        setEdit_status(true)
+    }
+    function Cancel() {
+        setEdit_status(false)
+        
+    }
+    function Edit_Order_status(status){
+        setStatus_order(status)
+    }
+
+    function Save(){
+        fetch(serverAddress + "api/order/update_status_of_order", {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id_order: props.order.id_order,
+              status_order: status_order,
+            }),
+        })
+    }
     return (        
         <div className="order">
-            {console.log(getCookie('type_account'))}
             <div className="order-product-info">
                 <div className="product-left">
                     <div className="order-product-name">
@@ -58,24 +85,49 @@ const order = (props) => {
                 <div className="order-product-right">
                     <a href={`/order/manageorder/${props.order.id_order}` } >
                         <div className="order-manager">MANAGE</div>     
-                    </a>         
+                    </a>     
                     <div className="wrapper">
-                            <div className="margin-area">
+                        <div className="margin-area">
+                            {edit_status===false?
+                            <div>
                                 <div className="dot one" >1</div>
                                 {props.order.status_order>=2 ?  <div className="dot two-active" >2</div>: <div  className="dot two-inactive">2</div>}
                                 {props.order.status_order>=3 ?  <div className="dot three-active">3</div>: <div className="dot three-inactive">3</div>}
                                 {props.order.status_order===4 ?  <div className="dot four-active">4</div>: <div className="dot four-inactive">4</div>}
-                                <div className="progress-bar first"></div>
-                                <div className="progress-bar second"></div>
-                                <div className="progress-bar third"></div>
-                                <div className="row message">
-                                    <div className="message-1">Chờ xác nhận </div>
-                                    <div className="message-2">Đang giao</div>
-                                    <div className="message-3">Đã giao</div>
-                                    <div className="message-4">Đã hủy</div>
-                                </div>        
+                            </div>                                    
+                            :
+                            <div> 
+                                <div className="dot one" onClick={()=>Edit_Order_status(1)}>1</div>
+                                {status_order>=2 ?  <div className="dot two-active" onClick={()=>Edit_Order_status(2)}>2</div>: <div onClick={()=>Edit_Order_status(2)} className="dot two-inactive">2</div>}
+                                {status_order>=3 ?  <div className="dot three-active" onClick={()=>Edit_Order_status(3)}>3</div>: <div onClick={()=>Edit_Order_status(3)} className="dot three-inactive">3</div>}
+                                {status_order===4 ?  <div className="dot four-active" onClick={()=>Edit_Order_status(4)}>4</div>: <div onClick={()=>Edit_Order_status(4)} className="dot four-inactive">4</div>}
                             </div>
-                        </div>   
+                            }
+                           
+                            <div className="progress-bar first"></div>
+                            <div className="progress-bar second"></div>
+                            <div className="progress-bar third"></div>
+                            <div className="row message">
+                                <div className="message-1">Chờ xác nhận </div>
+                                <div className="message-2">Đang giao</div>
+                                <div className="message-3">Đã giao</div>
+                                <div className="message-4">Đã hủy</div>
+                            </div>        
+                        </div>
+                    </div> 
+                    {type_account==2&&
+                        <div className="order-button-row">
+                            <button type="button" className="order-btn-edit" onClick={()=>Edit()}>
+                                Edit
+                            </button>{" "}  
+                            <button type="button" className="order-btn-save" onClick={()=>Save()}>
+                                Save
+                            </button>{" "}  
+                            <button type="button" className="order-btn-edit" onClick={()=>Cancel()}>
+                                Cancel
+                            </button>{" "}  
+                        </div>
+                    }
                 </div>
             </div>   
         </div>
@@ -83,4 +135,4 @@ const order = (props) => {
     )
 }
 
-export default order;
+export default Order;

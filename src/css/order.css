@@ -228,9 +228,30 @@
     letter-spacing: 0em;
     text-align: left;
 }
-
-
-
+.order-button-row{
+    flex-direction: row;
+    align-self: center;
+}
+.order-btn-edit{
+    background-color: #ffe550;
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+.order-btn-save{
+    background-color: #50ff85;
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
 
 
 
