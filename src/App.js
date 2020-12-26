@@ -19,13 +19,13 @@ import Cookies from 'universal-cookie';
 
 export default function App() {
   
+  
     const cookies = new Cookies();
     console.log(cookies.get('id_user'))
 
   return (
     <Router>
       <div>
-        
         <NavbarComponent />
 
         {/* A <Switch> looks through its children <Route>s and

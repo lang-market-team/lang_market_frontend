@@ -10,7 +10,7 @@ class Signup extends Component {
       statusSignup: "",
       isSeller: false,
       redirect: false,
-      type: 2,
+      type: 3,
     };
   }
 
@@ -28,6 +28,7 @@ class Signup extends Component {
 
 
   signup() {
+    console.log(this.state.type);
     fetch(serverAddress + "api/signup", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -43,6 +44,8 @@ class Signup extends Component {
         phonenumber: this.phonenumber.value,
         email: this.email.value,
         type_account: this.state.type,
+        shop_name: this.shop_name.value,
+        shop_describe: this.shop_describe.value,
       }),
     })
       .then((res) => res.json())
@@ -62,7 +65,7 @@ class Signup extends Component {
       this.setState({ type: 3 });
     }
     else{
-      this.setState({ type: 3 });
+      this.setState({ type: 2 });
     }
     document.getElementById("shop_name").disabled = this.state.isSeller;
     document.getElementById("shop_describe").disabled = this.state.isSeller;
@@ -105,7 +108,7 @@ class Signup extends Component {
                       value="seller"
                       onChange={this.changeStatus}
                     />
-                    &ensp; &ensp; Người mua hàng
+                    &ensp; &ensp; Người bán hàng
                   </label>
                 </div>
               </div>
@@ -131,7 +134,7 @@ class Signup extends Component {
                   placeholder="Mô tả cửa hàng"
                   disabled
                   ref={(ref) => {
-                    this.shop_name = ref;
+                    this.shop_describe = ref;
                   }}
                 />
               </div>
