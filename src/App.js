@@ -64,7 +64,7 @@ export default function App() {
           <Route path="/order/myorder">
             <Myorder />
           </Route>
-          <Route path="/order/manageorder">
+          <Route path="/order/manageorder/:id">
             <Manageorder />
           </Route>
         </Switch>

@@ -1,34 +1,36 @@
 import "../../css/order.css";
-import {NavLink} from "reactstrap";
-const order = () => {
-    return (         
+const order = (props) => {
+    
+    return (        
         <div className="order">
             <div className="order-product-info">
                 <div className="product-left">
                     <div className="order-product-name">
-                        <span>Mã đơn hàng: </span> ID
+                        <span>Mã đơn hàng: </span> {props.order.id_order}
                     </div>
                     <div className="order-product-quanlity">
-                        <span>Thời gian tạo đơn hàng: </span> Time
+                        <span>Thời gian tạo đơn hàng: </span> {props.order.create_time}
                     </div>
                     <div className="order-product-quanlity">
-                        <span>Thời gian giao dự kiến: </span> Time
+                        <span>Thời gian giao dự kiến: </span> {props.order.delivery_time}
                     </div>
                     <div className="order-product-quanlity">
-                        <span>Tổng giá: </span> Price
+                        <span>Tổng giá: </span> {props.order.total_price}
                     </div>
                     <div className="order-product-quanlity">
                         <span>Thanh toán: </span> Trước
                     </div>
                 </div>
                 <div className="order-product-right">
-                    <NavLink href="/order/manageorder" className="order-manager">MANAGE</NavLink>              
+                    <a href={`/order/manageorder/${props.order.id_order}` } >
+                        <div className="order-manager">MANAGE</div>     
+                    </a>         
                     <div className="wrapper">
                             <div className="margin-area">
                                 <div className="dot one">1</div>
-                                <div className="dot two">2</div>
-                                <div className="dot three">3</div>
-                                <div className="dot four">4</div>
+                                {props.order.status_order>=2 ?  <div className="dot two-active">2</div>: <div className="dot two-inactive">2</div>}
+                                {props.order.status_order>=3 ?  <div className="dot three-active">3</div>: <div className="dot three-inactive">3</div>}
+                                {props.order.status_order===4 ?  <div className="dot four-active">4</div>: <div className="dot four-inactive">4</div>}
                                 <div className="progress-bar first"></div>
                                 <div className="progress-bar second"></div>
                                 <div className="progress-bar third"></div>
