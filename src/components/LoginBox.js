@@ -39,6 +39,7 @@ class LoginBox extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.error == null) {
           const cookies = new Cookies();
           cookies.set('id_user', String(data.id_user), { path: '/' });

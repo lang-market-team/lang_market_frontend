@@ -135,7 +135,9 @@ letter-spacing: 0em;
 
 
 }
-
+.top-product .col-xl-3,.top-product .col-lg-4,.top-product .col-sm-6{
+    margin-bottom:20px;
+}
 
 @media (max-width: 1024px){
     

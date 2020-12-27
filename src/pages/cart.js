@@ -27,6 +27,9 @@ const Cart = () => {
 
     }
 
+    function newOrder() {
+
+    }
 
 
     function plus(id) {
