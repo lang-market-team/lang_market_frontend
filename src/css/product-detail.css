@@ -1,0 +1,458 @@
+
+.product-detail{
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+.product-detail-image{
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.product-detail-image img{
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.product-detail-info{
+    padding-left: 45px;
+}
+
+.product-detail-supplier{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    color: #575757;
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+.product-detail-title{
+    font-family: "Poppins",sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.product-detail-rating{
+    margin-bottom: 20px;
+}
+.product-detail-rating svg{
+    margin-right: 8px;
+}
+
+.product-detail-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.product-detail-price{
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.product-detail-new-price{
+    font-family: "Poppins",sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 45px;
+    color: #2498FE;
+    margin-right: 24px;
+}
+.product-detail-old-price {
+    font-family: "Poppins",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    text-decoration-line: line-through;
+}
+
+.product-detail-flex{
+    display: flex;
+    align-items: center;
+}
+
+.product-detail-number{
+    margin-bottom: 15px;
+}
+
+.product-detail-number-text{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    margin-bottom: 12px;
+}
+
+
+.product-detail-number-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #000;
+}
+
+.product-detail-number-input {
+    width: 50px;
+    text-align: center;
+    margin: 0 8px;
+    outline: none;
+}
+
+.product-detail-add-cart-button {
+    position: relative;
+    padding: 12px 24px;
+    padding-left: 52px;
+    background: #2498FE;
+    color: #fff;
+    border-radius: 30px;
+    font-family: "Poppins",sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+}
+
+.product-detail-add-cart-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    left: 0px;
+    top: 0px;
+    background: #DDF0FE;
+    border-radius: 45px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 768px){
+    
+    .product-detail-info {
+        padding-left: 0;
+    }
+
+
+}
+
+.tabs {
+    min-height: 400px;
+}
+
+.tabs .tab-title{
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    margin-bottom: 0;
+    padding-left: 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.tabs .tab-title li{
+    position: relative;
+    display: inline-block;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background: 0 0;
+    padding: 0 40px;
+    border-bottom: 0;
+    margin-top: 13px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.tabs .tab-title li.active{
+    padding-bottom: 0;
+    border-bottom: 2px solid #1E88E5;
+    margin-bottom: -1px;
+    color: #1E88E5;
+}
+
+
+
+.tabs .review{
+    padding-top: 24px;
+    margin-bottom: 30px;
+}
+
+.tabs .flex{
+    display: flex;
+    align-items: baseline;
+}
+
+.tabs .review-total{
+    font-family: "Poppins",sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 27px;
+}
+.tabs .review-total-number{
+    background: #ECF3F8;
+border-radius: 12px;
+padding: 0px 8px;
+
+font-family: "Poppins",sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 27px;
+text-align: left;
+color: #2498FE;
+
+margin-left: 8px;
+}
+
+.tabs .review-hearder{
+    display: flex;justify-content: space-between;align-items: center;margin-bottom: 10px;
+}
+
+.tabs .add-review-button{
+    padding: 13px 32px;
+    background: #2498FE;
+border-radius: 30px;
+color: #fff;
+font-family: "Poppins",sans-serif;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
+
+}
+
+
+.user-image{
+    width: 60px;
+height: 60px;
+background: #C4C4C4;
+border-radius: 50px;
+}
+
+.tabs .user-info{
+    padding: 10px;
+    text-align: start;
+}
+
+.tabs .user-name{
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+
+}
+
+.tabs .review-time{
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    color: #958E8E;
+    margin: 8px 0;
+}
+
+
+.tabs .review-content{
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+
+    text-align: left;
+
+}
+
+.add-reivew-dialog{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 750px;
+    background-color: #fff;
+    z-index: 9;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    border-radius: 6px;
+    overflow-x: scroll;
+    max-height: 100%;
+}
+
+.add-reivew-dialog::-webkit-scrollbar {
+    width: 6px;
+    background-color: #fff;
+} 
+
+.add-reivew-dialog::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color:  #b3b3b3;
+}
+
+
+.add-reivew-dialog .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 24px;
+    border-bottom: 1px solid #c0c6ca;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.add-reivew-dialog .header .title{
+
+    font-family: "Poppins",sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+    text-align: left;
+    margin-bottom: 0;
+
+
+
+}
+.add-reivew-dialog i{
+    cursor: pointer;
+
+}
+
+#dialog-overlay{
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 8;
+    background-color: #000;
+    opacity: .5;
+    top: 0;
+    right: 0;
+}
+
+.add-reivew-dialog .done-button{
+
+    padding: 8px 30px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border: 0;
+    width: auto;
+    outline: none;
+    display: block;
+    border-radius: 10px;
+    background-color: rgb(131, 201, 19);
+    font-family: "Poppins",sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    box-shadow: none;
+    margin: 0;
+    margin-right: 16px;
+}
+
+.add-reivew-dialog .close-button{
+    padding: 8px 30px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border: 0;
+    width: auto;
+    outline: none;
+    display: block;
+    border-radius: 10px;
+    background-color: red;
+    font-family: "Poppins",sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    box-shadow: none;
+    margin-right: 16px;
+}
+
+.add-reivew-dialog .input-group{
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    width: auto;
+}
+
+.add-reivew-dialog .signup-label{
+    font-size: 16px;
+    color: #373941;
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.add-reivew-dialog .signup-input{
+    display: block;
+
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: #f2f3f5;
+    outline: none;
+    border: 0;
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+}
+
+.add-reivew-dialog .footer{
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+#dialog form{
+    margin-bottom: 0px;
+}
+
+@media (max-width: 768px){
+    
+    .add-reivew-dialog{
+        min-width: auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+}

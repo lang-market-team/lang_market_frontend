@@ -4,15 +4,21 @@ import NavbarComponent from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Fashion from "./pages/productList/Fashion"
-import Food from "./pages/productList/Food"
-import ElectronicDevice from "./pages/productList/ElectronicDevice"
-import Book from "./pages/productList/Book"
-import Skincare from "./pages/productList/Skincare"
-import Renamestore from "./pages/Store/Renamestore"
-import Manageproduct from "./pages/Store/Manageproduct"
+import ManageAccount from "./pages/admin/ManageAccount"
+import ManageFee from "./pages/admin/ManageFee"
+import ManageProduct from "./pages/seller/ManageProduct"
+import ManageStore from "./pages/seller/ManageStore"
+import SubmitFee from "./pages/seller/SubmitFee"
+// import Renamestore from "./pages/Store/Renamestore"
+// import Manageproduct from "./pages/Store/Manageproduct"
+import Categorie from "./pages/categorie";
+import Cart from "./pages/cart"
+import ProductDetail from "./pages/product-detail"
+import Myorder from "./pages/order/myorder";
+import Manageorder from "./pages/order/manageorder";
 
 export default function App() {
+
   return (
     <Router>
       <div>
@@ -27,29 +33,45 @@ export default function App() {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/product-detail/:id">
+            <ProductDetail />
+          </Route>
           <Route path="/signup">
             <Signup />
           </Route>
-          <Route path="/productlist/fashion">
-            <Fashion />
+          <Route path="/cart">
+            <Cart />
           </Route>
-          <Route path="/productlist/food">
-            <Food />
+          <Route path="/categorie/:id">
+            <Categorie />
           </Route>
-          <Route path="/productlist/electronicdevice">
-            <ElectronicDevice />
+          <Route path="/admin/manage_account">
+            <ManageAccount />
           </Route>
-          <Route path="/productlist/book">
-            <Book />
+          <Route path="/admin/manage_fee">
+            <ManageFee />
           </Route>
-          <Route path="/productlist/skincare">
-            <Skincare />
+
+          <Route path="/seller/manage_store">
+            <ManageStore />
           </Route>
-          <Route path="/store/rename">
+          <Route path="/seller/manage_product">
+            <ManageProduct />
+          </Route>
+          <Route path="/seller/submit_fee">
+            <SubmitFee />
+          </Route>
+          {/* <Route path="/store/rename">
             <Renamestore />
           </Route>
           <Route path="/store/manage">
             <Manageproduct />
+          </Route> */}
+          <Route path="/order/myorder">
+            <Myorder />
+          </Route>
+          <Route path="/order/manageorder/:id">
+            <Manageorder />
           </Route>
         </Switch>
       </div>

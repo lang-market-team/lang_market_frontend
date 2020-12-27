@@ -1,14 +1,34 @@
 import React, { Component } from "react";
 import serverAddress from "../serverConnection";
+import { Redirect } from 'react-router-dom';
+import "./../css/signup.css";
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.signup = this.signup.bind(this);
     this.state = {
       statusSignup: "",
+      isSeller: false,
+      redirect: false,
+      type: 3,
     };
   }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/login' />
+    }
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+
   signup() {
+    console.log(this.state.type);
     fetch(serverAddress + "api/signup", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -23,19 +43,35 @@ class Signup extends Component {
         province: this.province.value,
         phonenumber: this.phonenumber.value,
         email: this.email.value,
+        type_account: this.state.type,
+        shop_name: this.shop_name.value,
+        shop_describe: this.shop_describe.value,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data === 1) {
-          this.setState({ statusLogin: "Đăng ký thành công" });
+          this.setRedirect()
           
         } else {
           this.setState({ statusLogin: "Đăng ký thất bại" });
         }
       });
   }
+
+  changeStatus = () => {
+    this.setState({ isSeller: !this.state.isSeller });
+    if(this.state.type === 2){
+      this.setState({ type: 3 });
+    }
+    else{
+      this.setState({ type: 2 });
+    }
+    document.getElementById("shop_name").disabled = this.state.isSeller;
+    document.getElementById("shop_describe").disabled = this.state.isSeller;
+  }
+
+
 
   render() {
     return (
@@ -48,7 +84,7 @@ class Signup extends Component {
                 <div>
                   <label>Loại tài khoản</label>
                 </div>
-                <div className="form-check">
+                <div className="form-check fix-radio">
                   <label className="form-check-label" htmlFor="customer">
                     <input
                       type="radio"
@@ -57,8 +93,9 @@ class Signup extends Component {
                       name="optradio"
                       value="customer"
                       defaultChecked
+                      onChange={this.changeStatus}
                     />
-                    Khách mua hàng
+                    &ensp; &ensp; Khách mua hàng
                   </label>
                 </div>
                 <div className="form-check">
@@ -69,11 +106,39 @@ class Signup extends Component {
                       id="seller"
                       name="optradio"
                       value="seller"
+                      onChange={this.changeStatus}
                     />
-                    Người bán hàng
+                    &ensp; &ensp; Người bán hàng
                   </label>
                 </div>
               </div>
+              <div className="form-group">
+                <label htmlFor="shop_name">Tên cửa hàng:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="shop_name"
+                  placeholder="Nhập tên cửa hàng"
+                  disabled
+                  ref={(ref) => {
+                    this.shop_name = ref;
+                  }}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="shop_describe">Mô tả cửa hàng:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="shop_describe"
+                  placeholder="Mô tả cửa hàng"
+                  disabled
+                  ref={(ref) => {
+                    this.shop_describe = ref;
+                  }}
+                />
+              </div>
+              <div className="form-group"></div>
               <div className="form-group">
                 <label htmlFor="username">Tên đăng nhập:</label>
                 <input
@@ -122,7 +187,11 @@ class Signup extends Component {
                   }}
                 />
               </div>
-              <div className="form-group">
+            </form>
+          </div>
+          <div className="col-sm-6">
+            <form>
+            <div className="form-group">
                 <label htmlFor="firstname">Tên:</label>
                 <input
                   type="text"
@@ -134,10 +203,6 @@ class Signup extends Component {
                   }}
                 />
               </div>
-            </form>
-          </div>
-          <div className="col-sm-6">
-            <form>
               <div className="form-group">
                 <label htmlFor="street">Số nhà, tên đường:</label>
                 <input
@@ -214,6 +279,7 @@ class Signup extends Component {
           </div>
         </div>
         <div className="text-center">
+          {this.renderRedirect()}
           <button
             type="button"
             className="btn btn-primary"
