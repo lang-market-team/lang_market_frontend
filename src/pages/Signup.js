@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import serverAddress from "../serverConnection";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import "./../css/signup.css";
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +10,7 @@ class Signup extends Component {
       statusSignup: "",
       isSeller: false,
       redirect: false,
+      type: 3,
     };
   }
 
@@ -26,6 +28,7 @@ class Signup extends Component {
 
 
   signup() {
+    console.log(this.state.type);
     fetch(serverAddress + "api/signup", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -40,11 +43,13 @@ class Signup extends Component {
         province: this.province.value,
         phonenumber: this.phonenumber.value,
         email: this.email.value,
+        type_account: this.state.type,
+        shop_name: this.shop_name.value,
+        shop_describe: this.shop_describe.value,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data === 1) {
           this.setRedirect()
           
@@ -54,8 +59,14 @@ class Signup extends Component {
       });
   }
 
-  changeStatusSeller = () => {
+  changeStatus = () => {
     this.setState({ isSeller: !this.state.isSeller });
+    if(this.state.type === 2){
+      this.setState({ type: 3 });
+    }
+    else{
+      this.setState({ type: 2 });
+    }
     document.getElementById("shop_name").disabled = this.state.isSeller;
     document.getElementById("shop_describe").disabled = this.state.isSeller;
   }
@@ -73,7 +84,7 @@ class Signup extends Component {
                 <div>
                   <label>Loại tài khoản</label>
                 </div>
-                <div className="form-check">
+                <div className="form-check fix-radio">
                   <label className="form-check-label" htmlFor="customer">
                     <input
                       type="radio"
@@ -82,9 +93,9 @@ class Signup extends Component {
                       name="optradio"
                       value="customer"
                       defaultChecked
-                      onChange={this.changeStatusSeller}
+                      onChange={this.changeStatus}
                     />
-                    Khách mua hàng
+                    &ensp; &ensp; Khách mua hàng
                   </label>
                 </div>
                 <div className="form-check">
@@ -95,9 +106,9 @@ class Signup extends Component {
                       id="seller"
                       name="optradio"
                       value="seller"
-                      onChange={this.changeStatusSeller}
+                      onChange={this.changeStatus}
                     />
-                    Người bán hàng
+                    &ensp; &ensp; Người bán hàng
                   </label>
                 </div>
               </div>
@@ -123,7 +134,7 @@ class Signup extends Component {
                   placeholder="Mô tả cửa hàng"
                   disabled
                   ref={(ref) => {
-                    this.shop_name = ref;
+                    this.shop_describe = ref;
                   }}
                 />
               </div>

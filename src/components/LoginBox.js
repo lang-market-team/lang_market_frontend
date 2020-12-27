@@ -3,6 +3,7 @@ import "./components.css";
 import serverAddress from "../serverConnection";
 import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router-dom'
+import "./../css/login.css"
 
 class LoginBox extends Component {
   constructor(props) {
@@ -39,13 +40,11 @@ class LoginBox extends Component {
       .then((res) => res.json())
       .then((data) => {
         if (data.error == null) {
-          console.log(data)
           const cookies = new Cookies();
           cookies.set('id_user',String(data.id_user),{path: '/'});
           cookies.set('first_name',String(data.first_name),{path: '/'});
           cookies.set('last_name',String(data.last_name),{path: '/'});
           cookies.set('type_account',String(data.type_account),{path: '/'});
-          console.log(cookies.getAll())
           this.setRedirect()
         } else {
           this.setState({ statusLogin: "Tên đăng nhập hoặc mật khẩu sai" });
@@ -60,7 +59,7 @@ class LoginBox extends Component {
         <p className="text-danger">admin admin</p>
         <p className="text-danger">customer1 customer1</p>
         <form>
-          <div className="form-group">
+          <div className="form-group text-left">
             <label htmlFor="username">Tên đăng nhập:</label>
             <input
               type="text"
@@ -72,7 +71,7 @@ class LoginBox extends Component {
               }}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group text-left">
             <label htmlFor="password">Mật khẩu:</label>
             <input
               type="password"

@@ -1,53 +1,51 @@
-import Star from "../../components/common/star";
-import "../../css/cart.css";
+import "../../css/order.css";
+import {
+    useParams
+} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import serverAddress from "../../serverConnection";
+
 const OrderProduct = () => {
+    const { id } = useParams();
+    const [order_product, setOrder_product] = useState([]);
+
+    useEffect(() => {
+        function findOne() {
+            fetch(serverAddress + `api/order/id_order=${id}`, {
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    setOrder_product(result)
+                })
+                .catch(console.log);
+
+        }
+        findOne();
+    }, [id]);
+
     return (
-        <div className="cart-product">
-            <div className="cart-img">
-
-            </div>
-            <div className="cart-info">
-                <div className="cart-img-mobile">
-
+        order_product.map((product,index)=>(
+            <div className="order-product" key={index}>
+                <div className="order-product-img">
+                    <img src={product.product_image}/>
                 </div>
-                <div className="cart-left">
-                    <div className="cart-product-name">
-                        Tên sản phẩm
-                    </div>
-                    <div className="cart-product-description">
-                        mô tả sơ lược về sản phẩm bày bán
-                    </div>
-                    <div className="cart-product-rating">
-                        <Star width="18" height="18" isActive="true" />
-                        <Star width="18" height="18" isActive="true" />
-                        <Star width="18" height="18" isActive="true" />
-                        <Star width="18" height="18" isActive="true" />
-                        <Star width="18" height="18" isActive="false" />
-                    </div>
-                    <div className="cart-product-supplier">
-                        <span>Cung cấp bởi</span> Zara
-                    </div>
-                    <div className="cart-product-status">
-                        <span>Tình trạng</span> mới
-                    </div>
-                    <div className="cart-product-trademark">
-                        <span>Thương hiệu</span> OEM
-                    </div>
-                </div>
-                <div className="cart-right">
-                    <div className="cart-right-bottom">
-                        <div className="product-sum-money">
-                            Số lượng <span>2</span>
+                <div className="order-product-info">
+                    <div className="order-product-left">
+                        <div className="order-product-name">
+                            {product.product_name}
                         </div>
-                        <div className="product-sum-money">
-                            Tổng tiền <span>2.800.000 Đ</span>
+                        <div className="order-product-sum-money">
+                            Số lượng <span>{product.amount}</span>
+                        </div>
+                        <div className="order-product-sum-money">
+                            Đơn giá <span>{product.price}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
         </div>
+        ))  
     )
 }
 

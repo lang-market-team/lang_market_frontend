@@ -15,8 +15,14 @@ import Cart from "./pages/cart"
 import ProductDetail from "./pages/product-detail"
 import Myorder from "./pages/order/myorder";
 import Manageorder from "./pages/order/manageorder";
+import Cookies from 'universal-cookie';
 
 export default function App() {
+  
+  
+    const cookies = new Cookies();
+    console.log(cookies.get('id_user'))
+
   return (
     <Router>
       <div>
@@ -64,7 +70,7 @@ export default function App() {
           <Route path="/order/myorder">
             <Myorder />
           </Route>
-          <Route path="/order/manageorder">
+          <Route path="/order/manageorder/:id">
             <Manageorder />
           </Route>
         </Switch>
