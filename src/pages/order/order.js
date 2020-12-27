@@ -3,10 +3,28 @@ import React, { useState, useEffect } from 'react';
 import serverAddress from "../../serverConnection";
 
 const Order = (props) => {
-    const format = "yyyy-MM-dd";
+    const format = "MM/dd/yyyy hh:mm:ss";
     const type_account=getCookie('type_account')
     const [edit_status, setEdit_status] = useState(false);
+    const [delivery_time, setDelivery_time] = useState(props.order.delivery_time ||"");
     const [status_order, setStatus_order] = useState(1);
+    const [recipient_name, setRecipient_name]= useState("");
+
+    useEffect(() => {
+        function findOne() {
+            fetch(serverAddress + `api/user/get_information/id_user=`+props.order.id_buyer.toString(), {
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    setRecipient_name(result.last_name+" "+result.first_name)
+                })
+                .catch(console.log);
+
+        }
+        findOne();
+    }, [props.order.id_buyer]);
     function convertTimeToString(time, format){
         const date = new Date(time);
         const year = date.getFullYear();
@@ -31,10 +49,10 @@ const Order = (props) => {
         var ca = document.cookie.split(';');
         for(var i = 0; i <ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0)==' ') {
+            while (c.charAt(0)===' ') {
                 c = c.substring(1);
             }
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(name) === 0) {
                 return c.substring(name.length,c.length);
             }
         }
@@ -51,7 +69,10 @@ const Order = (props) => {
     function Edit_Order_status(status){
         setStatus_order(status)
     }
-
+    function handleChange(text) {
+        var value = text.target.value;
+        setDelivery_time(value)
+      }
     function Save(){
         fetch(serverAddress + "api/order/update_status_of_order", {
             method: "post",
@@ -59,6 +80,16 @@ const Order = (props) => {
             body: JSON.stringify({
               id_order: props.order.id_order,
               status_order: status_order,
+            }),
+        })
+        let date = new Date(delivery_time); 
+        let milliseconds = date.getTime();
+        fetch(serverAddress + "api/order/update_delivery_time_of_order", {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id_order: props.order.id_order,
+              delivery_time: milliseconds,
             }),
         })
     }
@@ -73,7 +104,24 @@ const Order = (props) => {
                         <span>Thời gian tạo đơn hàng: </span> {convertTimeToString(props.order.create_time,format)}
                     </div>
                     <div className="order-product-quanlity">
-                        <span>Thời gian giao dự kiến: </span> {props.order.delivery_time}
+                        <span>Thời gian giao dự kiến: </span> 
+                        {edit_status===false?
+                         props.order.delivery_time===null?"":convertTimeToString(props.order.delivery_time,format)
+                        :
+                        <input
+                            type="text"
+                            className="order-delivery_time"
+                            placeholder="Thời gian giao hàng"
+                            onChange={text=>handleChange(text)}
+                        />
+                        }
+                       
+                    </div>
+                    <div className="order-product-quanlity">
+                        <span>Tên người nhận: </span> {recipient_name}
+                    </div>
+                    <div className="order-product-quanlity">
+                        <span>Địa chỉ: </span> {props.order.delivery_address}
                     </div>
                     <div className="order-product-quanlity">
                         <span>Tổng giá: </span> {props.order.total_price}
@@ -115,7 +163,7 @@ const Order = (props) => {
                             </div>        
                         </div>
                     </div> 
-                    {type_account==2&&
+                    {type_account==="2"&&
                         <div className="order-button-row">
                             <button type="button" className="order-btn-edit" onClick={()=>Edit()}>
                                 Edit

@@ -10,6 +10,10 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [list, setList] = useState([]);
 
+  if(!window.location.hash) {
+    window.location = window.location + '#loaded';
+    window.location.reload();
+ }
 
   function getList() {
     fetch(serverAddress + "api/product", {
@@ -32,7 +36,6 @@ const Home = () => {
   if (loading || list.length === 0) {
     return Loading();
   }
-
 
   return (
     <div className="my-container">
