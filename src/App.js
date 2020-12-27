@@ -9,20 +9,20 @@ import Food from "./pages/productList/Food"
 import ElectronicDevice from "./pages/productList/ElectronicDevice"
 import Book from "./pages/productList/Book"
 import Skincare from "./pages/productList/Skincare"
-import Renamestore from "./pages/Store/Renamestore"
-import Manageproduct from "./pages/Store/Manageproduct"
+import ManageAccount from "./pages/admin/ManageAccount"
+import ManageFee from "./pages/admin/ManageFee"
+import ManageProduct from "./pages/seller/ManageProduct"
+import ManageStore from "./pages/seller/ManageStore"
+import SubmitFee from "./pages/seller/SubmitFee"
+// import Renamestore from "./pages/Store/Renamestore"
+// import Manageproduct from "./pages/Store/Manageproduct"
 import Cart from "./pages/cart"
 import ProductDetail from "./pages/product-detail"
 import Myorder from "./pages/order/myorder";
 import Manageorder from "./pages/order/manageorder";
-import Cookies from 'universal-cookie';
 
 export default function App() {
   
-  
-    const cookies = new Cookies();
-    console.log(cookies.get('id_user'))
-
   return (
     <Router>
       <div>
@@ -46,6 +46,7 @@ export default function App() {
           <Route path="/cart">
             <Cart />
           </Route>
+
           <Route path="/productlist/fashion">
             <Fashion />
           </Route>
@@ -61,12 +62,29 @@ export default function App() {
           <Route path="/productlist/skincare">
             <Skincare />
           </Route>
-          <Route path="/store/rename">
+
+          <Route path="/admin/manage_account">
+            <ManageAccount />
+          </Route>
+          <Route path="/admin/manage_fee">
+            <ManageFee />
+          </Route>
+
+          <Route path="/seller/manage_store">
+            <ManageStore />
+          </Route>
+          <Route path="/seller/manage_product">
+            <ManageProduct />
+          </Route>
+          <Route path="/seller/submit_fee">
+            <SubmitFee />
+          </Route>
+          {/* <Route path="/store/rename">
             <Renamestore />
           </Route>
           <Route path="/store/manage">
             <Manageproduct />
-          </Route>
+          </Route> */}
           <Route path="/order/myorder">
             <Myorder />
           </Route>
