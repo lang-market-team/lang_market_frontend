@@ -8,6 +8,23 @@ const Order = (props) => {
     const [edit_status, setEdit_status] = useState(false);
     const [delivery_time, setDelivery_time] = useState(props.order.delivery_time ||"");
     const [status_order, setStatus_order] = useState(1);
+    const [recipient_name, setRecipient_name]= useState("");
+
+    useEffect(() => {
+        function findOne() {
+            fetch(serverAddress + `api/user/get_information/id_user=`+props.order.id_buyer.toString(), {
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    setRecipient_name(result.last_name+" "+result.first_name)
+                })
+                .catch(console.log);
+
+        }
+        findOne();
+    }, [props.order.id_buyer]);
     function convertTimeToString(time, format){
         const date = new Date(time);
         const year = date.getFullYear();
@@ -32,10 +49,10 @@ const Order = (props) => {
         var ca = document.cookie.split(';');
         for(var i = 0; i <ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0)==' ') {
+            while (c.charAt(0)===' ') {
                 c = c.substring(1);
             }
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(name) === 0) {
                 return c.substring(name.length,c.length);
             }
         }
@@ -100,10 +117,10 @@ const Order = (props) => {
                         }
                        
                     </div>
-                    <div className="manage-text">
-                        <span>Tên người nhận: </span> {getCookie("last_name")+getCookie("first_name")}
+                    <div className="order-product-quanlity">
+                        <span>Tên người nhận: </span> {recipient_name}
                     </div>
-                    <div className="manage-text">
+                    <div className="order-product-quanlity">
                         <span>Địa chỉ: </span> {props.order.delivery_address}
                     </div>
                     <div className="order-product-quanlity">
@@ -146,7 +163,7 @@ const Order = (props) => {
                             </div>        
                         </div>
                     </div> 
-                    {type_account==2&&
+                    {type_account==="2"&&
                         <div className="order-button-row">
                             <button type="button" className="order-btn-edit" onClick={()=>Edit()}>
                                 Edit
