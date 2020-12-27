@@ -35,14 +35,22 @@ class NavbarComponent extends Component {
     this.setState({isOpen: !this.state.isOpen});
   }
 
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    }
+  }
+
   logout = () => {
     const cookies = new Cookies();
-    cookies.remove('id_user');
-    cookies.remove('first_name');
-    cookies.remove('last_name');
-    cookies.remove('type_account');
-    window.location.reload();
-    window.location.href = "#loaded"
+    
+    cookies.remove('id_user',{ path: '/' });
+    cookies.remove('first_name',{ path: '/' });
+    cookies.remove('last_name',{ path: '/' });
+    cookies.remove('type_account',{ path: '/' });
+    this.setState({
+      redirect: true
+    })
   }
 
   
@@ -175,6 +183,7 @@ class NavbarComponent extends Component {
             </NavItem>:""
             }
           </Nav>
+          {this.renderRedirect()}
           {
           !this.state.isGuest?
             <Button color="primary" onClick={this.logout}>Đăng xuất</Button>:""}
