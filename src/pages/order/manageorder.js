@@ -9,15 +9,17 @@ import OrderProduct from "./order-product";
 const Manageorder = () => {
     const { id } = useParams();
     const [data_order, setData_order] = useState([]);
+    const type_account= getCookie('type_account')
+
     function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
         for(var i = 0; i <ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0)==' ') {
+            while (c.charAt(0)===' ') {
                 c = c.substring(1);
             }
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(name) === 0) {
                 return c.substring(name.length,c.length);
             }
         }
@@ -27,16 +29,32 @@ const Manageorder = () => {
     useEffect(() => {
         function findOne() {
             let ca=getCookie("id_user")
-            fetch(serverAddress + "api/order/id_buyer=4", {
-                method: "get",
-                headers: { "Content-Type": "application/json" },
-                })
-                .then((res) => res.json())
-                .then((data) => {
-                    let order= data.filter(order=> order.id_order==id)
-                    setData_order(order[0])
-                });
+            if (type_account==="3") {
+                fetch(serverAddress + "api/order/id_buyer="+ca.toString(), {
+                    method: "get",
+                    headers: { "Content-Type": "application/json" },
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        let order= data.filter(order=> order.id_order==id)
+                        setData_order(order[0])
+                    });
+                }
+            else if (type_account==="2"){
+                fetch(serverAddress + "api/order/id_seller="+ca.toString(), {
+                    method: "get",
+                    headers: { "Content-Type": "application/json" },
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data)
+                        console.log(id)
+                        let order= data.filter(order=> order.id_order==id)
+                        setData_order(order[0])
+                    });
+                }
             }
+           
         findOne();
     }, [id]);
     
@@ -53,15 +71,9 @@ const Manageorder = () => {
                         <OrderProduct />
                     </div>
                     <div className="col-lg-3 col-12">
-                        <div className="pay-box">
-                            <div className="manage-text">
-                                <span>Tên người nhận: </span> {getCookie("last_name")+" "+getCookie("first_name")}
-                            </div>
-                            <div className="manage-text">
-                                <span>Địa chỉ: </span> {data_order.delivery_address}
-                            </div>
+                        <div className="order-pay-box">
                             <div className="">
-                                Giá trị:
+                                Tổng Giá trị:
                                 <div className="order-pay-money">
                                     <span>{data_order.total_price}</span>
                                 </div>
