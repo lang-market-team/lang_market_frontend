@@ -157,11 +157,6 @@ class NavbarComponent extends Component {
               <NavLink href="/seller/submit_fee">Nộp phí nền tảng</NavLink>
             </NavItem>:""
             }
-             {this.state.isSeller?
-              <NavItem>
-              <NavLink href="/order/myorder">My Order</NavLink>
-            </NavItem>:""
-            }
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Store

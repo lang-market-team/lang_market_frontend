@@ -9,6 +9,7 @@ import ManageFee from "./pages/admin/ManageFee"
 import ManageProduct from "./pages/seller/ManageProduct"
 import ManageStore from "./pages/seller/ManageStore"
 import SubmitFee from "./pages/seller/SubmitFee"
+import CreateProduct from "./pages/seller/CreateProduct"
 // import Renamestore from "./pages/Store/Renamestore"
 // import Manageproduct from "./pages/Store/Manageproduct"
 import Categorie from "./pages/categorie";
@@ -60,6 +61,9 @@ export default function App() {
           </Route>
           <Route path="/seller/submit_fee">
             <SubmitFee />
+          </Route>
+          <Route path="/seller/create_product">
+            <CreateProduct />
           </Route>
           {/* <Route path="/store/rename">
             <Renamestore />
