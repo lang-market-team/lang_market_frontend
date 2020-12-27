@@ -7,31 +7,45 @@ class Myorder extends Component {
     state={
         data_order:[]
     }
+
     getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
         for(var i = 0; i <ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0)==' ') {
+            while (c.charAt(0)===' ') {
                 c = c.substring(1);
             }
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(name) === 0) {
                 return c.substring(name.length,c.length);
             }
         }
         return "";
     }
-  componentDidMount(){
-    let ca=this.getCookie("id_user")
-    fetch(serverAddress + "api/order/id_buyer=4", {
-        method: "get",
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({data_order:data})
-        });
-  }
+    componentDidMount(){
+        let ca=this.getCookie("id_user")
+        const type_account= this.getCookie('type_account')
+        if (type_account==="3") {
+            fetch(serverAddress + "api/order/id_buyer="+ca.toString(), {
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({data_order:data})
+            });
+        }
+        else if (type_account==="2"){
+            fetch(serverAddress + "api/order/id_seller="+ca.toString(), {
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({data_order:data})
+            });
+        }       
+    }
   render() {
     const {data_order}=this.state
     return (
