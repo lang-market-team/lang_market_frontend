@@ -11,9 +11,11 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button
 } from "reactstrap";
 import Logo from "../images/smallLogoLangMarket.png";
 import Cookies from 'universal-cookie';
+import { Redirect } from 'react-router-dom';
 
 class NavbarComponent extends Component {
   constructor(props) {
@@ -23,13 +25,24 @@ class NavbarComponent extends Component {
       isGuest: true,
       isAdmin: true,
       isSeller:true,
-      isBuyer:true
+      isBuyer:true,
+      redirect:false
     };
   }
   // const [isOpen, setIsOpen] = useState(false);
 
   toggle = () => {
     this.setState({isOpen: !this.state.isOpen});
+  }
+
+  logout = () => {
+    const cookies = new Cookies();
+    cookies.remove('id_user');
+    cookies.remove('first_name');
+    cookies.remove('last_name');
+    cookies.remove('type_account');
+    window.location.reload();
+    window.location.href = "#loaded"
   }
 
   
@@ -162,6 +175,9 @@ class NavbarComponent extends Component {
             </NavItem>:""
             }
           </Nav>
+          {
+          !this.state.isGuest?
+            <Button color="primary" onClick={this.logout}>Đăng xuất</Button>:""}
         </Collapse>
       </Navbar>
     </div>
