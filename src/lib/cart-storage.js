@@ -3,7 +3,10 @@ class CartStorage {
 
     static get() {
         var json = localStorage.getItem('p-cart');
-        return JSON.parse(json);
+        if (json) {
+            return JSON.parse(json);
+        }
+        return []
     }
 
     static add(data) {
