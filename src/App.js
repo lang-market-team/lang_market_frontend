@@ -11,13 +11,14 @@ import ManageStore from "./pages/seller/ManageStore"
 import SubmitFee from "./pages/seller/SubmitFee"
 // import Renamestore from "./pages/Store/Renamestore"
 // import Manageproduct from "./pages/Store/Manageproduct"
+import Categorie from "./pages/categorie";
 import Cart from "./pages/cart"
 import ProductDetail from "./pages/product-detail"
 import Myorder from "./pages/order/myorder";
 import Manageorder from "./pages/order/manageorder";
 
 export default function App() {
-  
+
   return (
     <Router>
       <div>
@@ -41,7 +42,9 @@ export default function App() {
           <Route path="/cart">
             <Cart />
           </Route>
-
+          <Route path="/categorie/:id">
+            <Categorie />
+          </Route>
           <Route path="/admin/manage_account">
             <ManageAccount />
           </Route>
