@@ -20,9 +20,7 @@ const ProductDetail = () => {
     const [dialogRating, setDialogRating] = useState(0);
     const [showDialog, setShowDialog] = useState(false);
     const [content, setContent] = useState('');
-    // const [value, setValue] = useState(
-    //     localStorage.getItem('myValueInLocalStorage') || ''
-    // );
+
 
     const { id } = useParams();
 

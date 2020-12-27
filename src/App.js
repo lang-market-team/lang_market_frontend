@@ -13,7 +13,8 @@ import CreateProduct from "./pages/seller/CreateProduct"
 // import Renamestore from "./pages/Store/Renamestore"
 // import Manageproduct from "./pages/Store/Manageproduct"
 import Categorie from "./pages/categorie";
-import Cart from "./pages/cart"
+import Cart from "./pages/cart";
+import Payment from "./pages/payment"
 import ProductDetail from "./pages/product-detail"
 import Myorder from "./pages/order/myorder";
 import Manageorder from "./pages/order/manageorder";
@@ -42,6 +43,9 @@ export default function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/payment">
+            <Payment />
           </Route>
           <Route path="/categorie/:id">
             <Categorie />
