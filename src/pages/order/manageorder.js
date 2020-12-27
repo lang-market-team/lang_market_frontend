@@ -36,7 +36,7 @@ const Manageorder = () => {
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                        let order= data.filter(order=> order.id_order===id)
+                        let order= data.filter(order=> order.id_order.toString()===id)
                         setData_order(order[0])
                     });
                 }
@@ -49,7 +49,7 @@ const Manageorder = () => {
                     .then((data) => {
                         console.log(data)
                         console.log(id)
-                        let order= data.filter(order=> order.id_order===id)
+                        let order= data.filter(order=> order.id_order.toString()===id)
                         setData_order(order[0])
                     });
                 }
