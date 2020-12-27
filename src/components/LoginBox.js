@@ -46,6 +46,8 @@ class LoginBox extends Component {
           cookies.set('first_name', String(data.first_name), { path: '/' });
           cookies.set('last_name', String(data.last_name), { path: '/' });
           cookies.set('type_account', String(data.type_account), { path: '/' });
+          cookies.set('shop_name', String(data.shop_name), { path: '/' });
+          cookies.set('shop_describe', String(data.shop_describe), { path: '/' });
           this.setRedirect();
         } else {
           this.setState({ statusLogin: "Tên đăng nhập hoặc mật khẩu sai" });

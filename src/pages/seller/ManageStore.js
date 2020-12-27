@@ -7,12 +7,13 @@ import serverAddress from "../../serverConnection";
 class ManageStore extends Component {
 
   constructor(props) {
+    const cookies = new Cookies()
     super(props);
     this.state = {
       shop_details : [],
       modal:false,
-      shop_name:"",
-      shop_describe:"",
+      shop_name: cookies.get('shop_name'),
+      shop_describe: cookies.get('shop_describe'),
     };
   }
 
@@ -34,7 +35,7 @@ class ManageStore extends Component {
     console.log(shop_name);
     console.log(shop_describe);
     console.log(cookies.get('id_user').toString())
-    fetch(serverAddress + "api/shop/get/id_user="+ cookies.get('id_user').toString(), {
+    fetch(serverAddress + "api/shop/update", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -45,13 +46,13 @@ class ManageStore extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        window.location.reload()
       });
   }
 
   componentDidMount(){
     const cookies = new Cookies();
-    fetch(serverAddress + "api/shop/get/id_user="+ cookies.get('id_user').toString(), {
+    fetch(serverAddress + "api/shop/get/id_user=" +   cookies.get('id_user').toString(), {
         method: "get",
         headers: { "Content-Type": "application/json" },
     })
@@ -80,7 +81,7 @@ class ManageStore extends Component {
                     </div>
                 </div>
                 <div className="">
-                <ButtonToggle onClick={this.openModal} color="primary">Thêm sản phẩm</ButtonToggle>{' '}
+                <ButtonToggle onClick={this.openModal} color="primary">Chỉnh sửa</ButtonToggle>{' '}
                 <Modal isOpen={this.state.modal}>
                     <ModalHeader >Chỉnh sửa</ModalHeader>
                     <ModalBody>
@@ -93,6 +94,7 @@ class ManageStore extends Component {
                             id="shop_name"
                             placeholder="Nhập tên gian hàng"
                             onChange={this.changeName}
+                            value = {this.state.shop_name}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -103,7 +105,9 @@ class ManageStore extends Component {
                             id="shop_describe"
                             placeholder="Nhập mô tả"
                             onChange={this.changeDescription}
+                            value = {this.state.shop_describe}
                             />
+                            
                         </FormGroup>
                         </Form>
                     </ModalBody>
