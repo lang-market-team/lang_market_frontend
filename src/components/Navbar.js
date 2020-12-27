@@ -40,19 +40,19 @@ const NavbarComponent = (props) => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <NavLink href="/productlist/fashion">Thời trang</NavLink>
+                  <NavLink href="/categorie/1">Thời trang</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/productlist/food">Thực phẩm</NavLink>
+                  <NavLink href="/categorie/2">Thực phẩm</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/productlist/electronicdevice">Đồ điện tử</NavLink>
+                  <NavLink href="/categorie/3">Đồ điện tử</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/productlist/book">Sách</NavLink>
+                  <NavLink href="/categorie/4">Sách</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink href="/productlist/skincare">Chăm sóc da</NavLink>
+                  <NavLink href="/categorie/5">Chăm sóc da</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
