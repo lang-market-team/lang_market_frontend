@@ -5,6 +5,7 @@ import serverAddress from "../serverConnection";
 import CartStorage from "../lib/cart-storage";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/dist/sweetalert2.css';
+import Loading from "../components/common/loading";
 import {
     useParams
 } from "react-router-dom";
@@ -89,7 +90,7 @@ const ProductDetail = () => {
     }
 
     if (loading || !data) {
-        return null;
+        return Loading();
     }
 
     return (

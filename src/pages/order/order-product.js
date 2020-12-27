@@ -1,43 +1,51 @@
-import Star from "../../components/common/star";
 import "../../css/order.css";
+import {
+    useParams
+} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import serverAddress from "../../serverConnection";
+
 const OrderProduct = () => {
+    const { id } = useParams();
+    const [order_product, setOrder_product] = useState([]);
+
+    useEffect(() => {
+        function findOne() {
+            fetch(serverAddress + `api/order/id_order=${id}`, {
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    setOrder_product(result)
+                })
+                .catch(console.log);
+
+        }
+        findOne();
+    }, [id]);
+
     return (
-        <div className="order-product">
-            <div className="order-product-img">
-
-            </div>
-            <div className="order-product-info">
-                <div className="order-product-left">
-                    <div className="order-product-name">
-                        Tên sản phẩm
-                    </div>
-                    <div className="order-product-description">
-                        mô tả sơ lược về sản phẩm bày bán
-                    </div>
-                    <div className="order-product-supplier">
-                        <span>Cung cấp bởi</span> Zara
-                    </div>
-                    <div className="order-product-status">
-                        <span>Tình trạng</span> mới
-                    </div>
-                    <div className="order-product-trademark">
-                        <span>Thương hiệu</span> OEM
-                    </div>
+        order_product.map((product,index)=>(
+            <div className="order-product" key={index}>
+                <div className="order-product-img">
+                    <img src={product.product_image}/>
                 </div>
-                <div className="order-right">
-                    <div className="order-right-bottom">
-                        <div className="order-product-sum-money">
-                            Số lượng <span>2</span>
+                <div className="order-product-info">
+                    <div className="order-product-left">
+                        <div className="order-product-name">
+                            {product.product_name}
                         </div>
                         <div className="order-product-sum-money">
-                            Tổng tiền <span>2.800.000 Đ</span>
+                            Số lượng <span>{product.amount}</span>
+                        </div>
+                        <div className="order-product-sum-money">
+                            Đơn giá <span>{product.price}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
         </div>
+        ))  
     )
 }
 

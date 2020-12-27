@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between;
     width: calc(100% - 64px);
+    margin-left: 48px;
 }
 .order-product-name{
     font-family: "Poppins",sans-serif;
@@ -99,7 +100,7 @@
     font-weight: bold;
 }
 .wrapper {
-    width: 844px;  
+    width: 700px;  
 }
 .margin-area {
     position: relative;
@@ -124,47 +125,51 @@
     left: 65px;
     background: #0C84D9;
 }
-.two {
-    left: 240px;
+.two-active {
+    left: 230px;
     background: #0C84D9;
 }
-.three {
-    left: 420px;
+.two-inactive {
+    left: 230px;
+    background: #bbb;
+}
+.three-active {
+    left: 400px;
     background: #0C84D9;
     
 }
-.four {
-    left: 580px;
+.three-inactive {
+    left: 400px;
     background: #bbb;
     
 }
-.five {
-    left: 730px;
-    background: #bbb;   
-    }
+.four-active {
+    left: 580px;
+    background: #0C84D9;
+}
+.four-inactive {
+    left: 580px;
+    background: #bbb; 
+}
+
  
 .progress-bar {
     position: absolute;
     height: 10px;
-    width: 20%;
+    width: 25%;
     top: 20px;
-    left: 10%;
+    left: 12%;
     background: #0C84D9;
 }
 .first {
     background: #0C84D9;
 }
 .second {
-    left: 33%;
-    background: #0C84D9;
+    left: 38%;
+   
 }
 .third {
-    left: 55%;
-    background: #bbb;
-}
-.fourx {
-    left: 73%;
-    background: #bbb;
+    left: 65%;
 }
   
 .message {
@@ -176,18 +181,15 @@
     color: #000;
 }
 .message-2 {
-    margin-left: 80px;
+    margin-left: 85px;
 }
 .message-3 {
-    margin-left: 110px;
+    margin-left: 120px;
 }
 .message-4 {
-    margin-left: 110px;
+    margin-left: 130px;
 }
-.message-5 {
-    margin-left: 100px;
-}
-.pay-box{
+.order .pay-box{
     padding: 17px 20px;
     background: #FFFFFF;
     border-radius: 5px;
@@ -226,9 +228,30 @@
     letter-spacing: 0em;
     text-align: left;
 }
-
-
-
+.order-button-row{
+    flex-direction: row;
+    align-self: center;
+}
+.order-btn-edit{
+    background-color: #ffe550;
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+.order-btn-save{
+    background-color: #50ff85;
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
 
 
 

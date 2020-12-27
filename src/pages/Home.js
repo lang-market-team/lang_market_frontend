@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CarouselComponent from "../components/Carousel";
 import Product from "../components/common/product";
+import Loading from "../components/common/loading";
+
 import serverAddress from "../serverConnection";
 import "../css/home.css"
 const Home = () => {
@@ -32,7 +34,7 @@ const Home = () => {
   }, [loading]);
 
   if (loading || list.length === 0) {
-    return null;
+    return Loading();
   }
 
   return (

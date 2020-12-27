@@ -4,11 +4,6 @@ import NavbarComponent from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Fashion from "./pages/productList/Fashion"
-import Food from "./pages/productList/Food"
-import ElectronicDevice from "./pages/productList/ElectronicDevice"
-import Book from "./pages/productList/Book"
-import Skincare from "./pages/productList/Skincare"
 import ManageAccount from "./pages/admin/ManageAccount"
 import ManageFee from "./pages/admin/ManageFee"
 import ManageProduct from "./pages/seller/ManageProduct"
@@ -45,22 +40,6 @@ export default function App() {
           </Route>
           <Route path="/cart">
             <Cart />
-          </Route>
-
-          <Route path="/productlist/fashion">
-            <Fashion />
-          </Route>
-          <Route path="/productlist/food">
-            <Food />
-          </Route>
-          <Route path="/productlist/electronicdevice">
-            <ElectronicDevice />
-          </Route>
-          <Route path="/productlist/book">
-            <Book />
-          </Route>
-          <Route path="/productlist/skincare">
-            <Skincare />
           </Route>
 
           <Route path="/admin/manage_account">
