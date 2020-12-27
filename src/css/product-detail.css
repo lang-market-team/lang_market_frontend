@@ -171,6 +171,10 @@ input[type=number] {
 
 }
 
+.tabs {
+    min-height: 400px;
+}
+
 .tabs .tab-title{
     width: 100%;
     text-align: center;

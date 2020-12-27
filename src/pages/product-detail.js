@@ -244,9 +244,9 @@ const ProductDetail = () => {
                                         </div>
 
 
-                                        <div onClick={() => openDialog()} className="add-review-button">
+                                        {Role.getUserId() ? <div onClick={() => openDialog()} className="add-review-button">
                                             Viết đánh giá
-                                    </div>
+                                    </div> : ""}
 
                                     </div>
 
