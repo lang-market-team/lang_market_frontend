@@ -48,9 +48,11 @@ class NavbarComponent extends Component {
     cookies.remove('first_name',{ path: '/' });
     cookies.remove('last_name',{ path: '/' });
     cookies.remove('type_account',{ path: '/' });
+    window.location.reload()
     this.setState({
       redirect: true
     })
+
   }
 
   
