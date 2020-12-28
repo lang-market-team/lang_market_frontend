@@ -59,8 +59,6 @@ class LoginBox extends Component {
     return (
       <div className="container login-box">
         <h2>Đăng nhập</h2>
-        <p className="text-danger">admin admin</p>
-        <p className="text-danger">customer1 customer1</p>
         <form>
           <div className="form-group text-left">
             <label htmlFor="username">Tên đăng nhập:</label>
