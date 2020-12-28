@@ -72,7 +72,7 @@ class CreateProduct extends Component {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
+            window.location.href = '/seller/manage_product'
         });
     }
 
