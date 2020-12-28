@@ -2,6 +2,7 @@ import "../css/cart.css";
 import CartProduct from "../components/common/cart-product";
 import CartStorage from "../lib/cart-storage";
 import React, { useState, useEffect } from 'react';
+
 const Cart = () => {
 
     const [list, setList] = useState(CartStorage.get());
@@ -27,9 +28,7 @@ const Cart = () => {
 
     }
 
-    function newOrder() {
 
-    }
 
 
     function plus(id) {
@@ -39,7 +38,9 @@ const Cart = () => {
                 let updatedItem = item
                 if (updatedItem.number + 1 <= updatedItem.remain_amount) {
                     updatedItem.number += 1;
+                    CartStorage.update(updatedItem);
                 }
+
                 return updatedItem;
             }
 
@@ -59,7 +60,9 @@ const Cart = () => {
                 let updatedItem = item
                 if (updatedItem.number - 1 > 0) {
                     updatedItem.number += -1;
+                    CartStorage.update(updatedItem);
                 }
+
                 return updatedItem;
             }
 
@@ -102,9 +105,13 @@ const Cart = () => {
                                 </div>
                             </div>
 
-                            <div className="pay-button">
-                                Tiến hành đặt hàng
+                            {
+                                list.length > 0 ? <a href="/payment">
+                                    <div className="pay-button">
+                                        Tiến hành đặt hàng
                             </div>
+                                </a> : ''
+                            }
                         </div>
                     </div>
                 </div>

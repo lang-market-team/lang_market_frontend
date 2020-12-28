@@ -48,9 +48,11 @@ class NavbarComponent extends Component {
     cookies.remove('first_name',{ path: '/' });
     cookies.remove('last_name',{ path: '/' });
     cookies.remove('type_account',{ path: '/' });
+    window.location.reload()
     this.setState({
       redirect: true
     })
+
   }
 
   
@@ -157,11 +159,12 @@ class NavbarComponent extends Component {
               <NavLink href="/seller/submit_fee">Nộp phí nền tảng</NavLink>
             </NavItem>:""
             }
-             {this.state.isSeller?
-              <NavItem>
-              <NavLink href="/order/myorder">My Order</NavLink>
-            </NavItem>:""
-            }
+            
+              {this.state.isSeller?
+               <NavItem>
+               <NavLink href="/order/myorder">Quản lý đơn hàng</NavLink>
+             </NavItem>:""
+             }
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Store
@@ -184,14 +187,14 @@ class NavbarComponent extends Component {
             }
             {this.state.isBuyer?
               <NavItem>
-              <NavLink href="/order/myorder">My Order</NavLink>
+              <NavLink href="/order/myorder">Đơn hàng của tôi</NavLink>
             </NavItem>:""
             }
           </Nav>
           {this.renderRedirect()}
           {
           !this.state.isGuest?
-            <Button color="primary" onClick={this.logout}>Đăng xuất</Button>:""}
+            <Button color="danger" onClick={this.logout}>Đăng xuất</Button>:""}
         </Collapse>
       </Navbar>
     </div>

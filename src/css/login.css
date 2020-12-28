@@ -3,5 +3,5 @@ input::placeholder{
 }
 
 input{
-    text-align: left;
+    text-align: left !important;
 }
